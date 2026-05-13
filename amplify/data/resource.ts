@@ -10,7 +10,7 @@ const schema = a.schema({
       avatarUrl:            a.string(),
       languagePreference:   a.enum(['en', 'es']),
       journeyStage:         a.enum(['darkness', 'glimpse', 'inner_light', 'mastery', 'illumination']),
-      subscriptionTier:     a.enum(['trial', 'basic', 'pro']),
+      planTier:             a.enum(['trial', 'basic', 'pro']),
       organizationId:       a.string(),
       role:                 a.enum(['end_user', 'coach', 'corporate_admin', 'healthcare_provider', 'super_admin']),
       consentToOrgView:     a.boolean(),
@@ -40,7 +40,7 @@ const schema = a.schema({
     ]),
 
   // ── Subscription ─────────────────────────────────────────────────────────
-  Subscription: a
+  UserSubscription: a
     .model({
       userId:               a.string().required(),
       stripeCustomerId:     a.string(),
@@ -136,7 +136,7 @@ const schema = a.schema({
   // ── AI conversation session ───────────────────────────────────────────────
   AIConversation: a
     .model({
-      tool:           a.enum(['care_multiplier', 'cognitive_shield']).required(),
+      tool:           a.enum(['care_multiplier', 'cognitive_shield']),
       messagesJson:   a.string().required(),
       summaryInsight: a.string(),
       microAction:    a.string(),
