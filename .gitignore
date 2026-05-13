@@ -1,0 +1,42 @@
+# Claude Code local settings
+.claude/settings.local.json
+
+# ── Dependencies ──────────────────────────────────────────────────────────────
+node_modules/
+/amplify/node_modules/
+/.pnp
+.pnp.*
+
+# ── Next.js ───────────────────────────────────────────────────────────────────
+/.next/
+/out/
+/build
+next-env.d.ts
+
+# ── Testing ───────────────────────────────────────────────────────────────────
+/coverage
+
+# ── Environment variables ─────────────────────────────────────────────────────
+.env
+.env.*
+.env*.example
+.env*.local
+
+# ── Amplify Gen 2 ─────────────────────────────────────────────────────────────
+amplify_outputs.json
+amplify/**/*.mjs
+.amplify/
+
+# ── TypeScript ────────────────────────────────────────────────────────────────
+*.tsbuildinfo
+
+# ── OS / editor ───────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.pem
+
+# ── Debug logs ────────────────────────────────────────────────────────────────
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*

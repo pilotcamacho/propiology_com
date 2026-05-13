@@ -1,0 +1,18 @@
+{
+  "currentPlan": "Plan Actual",
+  "trial": "Prueba Gratuita",
+  "basic": "Básico",
+  "pro": "Pro",
+  "trialEnds": "Prueba termina el",
+  "renewsOn": "Se renueva el",
+  "upgrade": "Mejorar Plan",
+  "cancel": "Cancelar Suscripción",
+  "invoices": "Facturas",
+  "paymentMethod": "Método de Pago",
+  "seats": "Cupos",
+  "activeSeats": "Cupos activos",
+  "totalSeats": "Cupos totales",
+  "addSeats": "Agregar cupos",
+  "priceMonthly": "/mes",
+  "priceAnnual": "/año"
+}

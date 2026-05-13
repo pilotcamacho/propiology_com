@@ -1,0 +1,15 @@
+{
+  "appName": "Propiology",
+  "tagline": "Tu Sistema Operativo Personal para la transformación del comportamiento",
+  "loading": "Cargando...",
+  "error": "Algo salió mal.",
+  "retry": "Intentar de nuevo",
+  "save": "Guardar",
+  "cancel": "Cancelar",
+  "confirm": "Confirmar",
+  "delete": "Eliminar",
+  "edit": "Editar",
+  "back": "Atrás",
+  "next": "Siguiente",
+  "close": "Cerrar"
+}

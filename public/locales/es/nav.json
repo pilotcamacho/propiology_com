@@ -1,0 +1,14 @@
+{
+  "features": "Características",
+  "pricing": "Precios",
+  "forTeams": "Para Equipos",
+  "forCoaches": "Para Coaches",
+  "security": "Seguridad",
+  "login": "Iniciar Sesión",
+  "register": "Comenzar Gratis",
+  "dashboard": "Inicio",
+  "command": "Centro de Comando",
+  "billing": "Facturación",
+  "settings": "Configuración",
+  "signOut": "Cerrar Sesión"
+}

@@ -1,0 +1,1 @@
+export { configureAmplify } from './amplifyConfig';

@@ -1,0 +1,18 @@
+{
+  "currentPlan": "Current Plan",
+  "trial": "Free Trial",
+  "basic": "Basic",
+  "pro": "Pro",
+  "trialEnds": "Trial ends",
+  "renewsOn": "Renews on",
+  "upgrade": "Upgrade Plan",
+  "cancel": "Cancel Subscription",
+  "invoices": "Invoices",
+  "paymentMethod": "Payment Method",
+  "seats": "Seats",
+  "activeSeats": "Active seats",
+  "totalSeats": "Total seats",
+  "addSeats": "Add seats",
+  "priceMonthly": "/month",
+  "priceAnnual": "/year"
+}

@@ -1,0 +1,25 @@
+{
+  "readinessScore": "Puntaje de Disposición",
+  "readinessSubtitle": "Tu puntaje diario compuesto (0–100)",
+  "habits": "Hábitos",
+  "habitsToday": "Hábitos de hoy",
+  "markComplete": "Marcar como completado",
+  "streak": "racha",
+  "days": "días",
+  "journal": "Diario",
+  "journalPrompt": "¿Cuál es tu intención para hoy?",
+  "aiTools": "Herramientas IA",
+  "careMultiplier": "Care-Multiplier",
+  "cognitiveShield": "Escudo Cognitivo",
+  "biometrics": "Biométricos",
+  "progress": "Progreso",
+  "settings": "Configuración",
+  "welcomeBack": "Bienvenido de vuelta",
+  "noHabitsYet": "Aún no tienes hábitos activos. Crea tu primer hábito para comenzar.",
+  "createHabit": "Crear Hábito",
+  "components": {
+    "habits": "Adherencia a hábitos",
+    "biometrics": "Señales biométricas",
+    "reflection": "Práctica reflexiva"
+  }
+}

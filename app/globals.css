@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+/* ─── Propiology.com Design Tokens ─────────────────────────────────────────── */
+@theme {
+  /* Fonts — CSS vars injected at runtime by next/font */
+  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-sans:    var(--font-inter), "Inter", system-ui, sans-serif;
+
+  /* Brand teal — primary action color */
+  --color-brand-50:  #edfbfb;
+  --color-brand-100: #cff5f5;
+  --color-brand-200: #9eeaeb;
+  --color-brand-300: #5ed8da;
+  --color-brand-400: #2bbec4;
+  --color-brand-500: #1aa6ad;
+  --color-brand-600: #188694;
+  --color-brand-700: #156c7c;
+  --color-brand-800: #135465;
+  --color-brand-900: #114050;
+  --color-brand-950: #0b2a38;
+
+  /* Earth — warm stone neutrals */
+  --color-earth-50:  #faf9f7;
+  --color-earth-100: #f4f1ec;
+  --color-earth-200: #e8e1d5;
+  --color-earth-300: #d4c8b5;
+  --color-earth-400: #b8a48e;
+  --color-earth-500: #9c8470;
+  --color-earth-600: #856b5a;
+  --color-earth-700: #6e5449;
+  --color-earth-800: #5c463e;
+  --color-earth-900: #4d3b35;
+  --color-earth-950: #2a1f1b;
+
+  /* Gold — achievement badges, high score indicator */
+  --color-gold-50:  #fffbeb;
+  --color-gold-100: #fff4c2;
+  --color-gold-200: #ffe880;
+  --color-gold-300: #ffd53e;
+  --color-gold-400: #ffc21a;
+  --color-gold-500: #f0a000;
+  --color-gold-600: #d07a00;
+  --color-gold-700: #a85900;
+  --color-gold-800: #8a4500;
+  --color-gold-900: #723800;
+  --color-gold-950: #431e00;
+
+  /* Status colors */
+  --color-success-500: #2cb67d;
+  --color-success-100: #d1f5e4;
+  --color-alert-500:   #e84855;
+  --color-alert-100:   #fde8ea;
+  --color-warning-500: #f59e0b;
+  --color-warning-100: #fef3c7;
+
+  /* Journey stage accents */
+  --color-journey-darkness:     #1a1a2e;
+  --color-journey-glimpse:      #8b7fa8;
+  --color-journey-inner-light:  #e8c547;
+  --color-journey-mastery:      #3d8bcd;
+  --color-journey-illumination: #f5a623;
+
+  /* Semantic surfaces */
+  --color-surface:        #ffffff;
+  --color-surface-muted:  #f4f1ec;
+  --color-surface-subtle: #faf9f7;
+  --color-surface-dark:   #0b2a38;
+
+  /* Text */
+  --color-text-primary:   #1a1a1a;
+  --color-text-secondary: #4d3b35;
+  --color-text-muted:     #9c8470;
+  --color-text-inverse:   #ffffff;
+
+  /* Borders */
+  --color-border:        #e8e1d5;
+  --color-border-strong: #d4c8b5;
+
+  /* Shadows */
+  --shadow-card:     0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.06);
+  --shadow-elevated: 0 4px 12px 0 rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.06);
+  --shadow-modal:    0 20px 60px -10px rgb(0 0 0 / 0.15), 0 8px 20px -8px rgb(0 0 0 / 0.10);
+  --shadow-glow:     0 0 0 3px rgb(26 166 173 / 0.25);
+
+  /* Border radii */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-2xl:  24px;
+  --radius-pill: 9999px;
+}
+
+/* ─── Base styles ─────────────────────────────────────────────────────────── */
+:root {
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-brand-700);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.input-base {
+  width: 100%;
+  padding: 0.625rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-brand-200);
+  background: white;
+  color: var(--color-brand-950);
+  font-size: 0.875rem;
+  transition: box-shadow 0.15s;
+}
+.input-base:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-brand-600);
+}

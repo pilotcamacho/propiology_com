@@ -1,0 +1,15 @@
+{
+  "appName": "Propiology",
+  "tagline": "Your Personal OS for behavioral transformation",
+  "loading": "Loading...",
+  "error": "Something went wrong.",
+  "retry": "Try again",
+  "save": "Save",
+  "cancel": "Cancel",
+  "confirm": "Confirm",
+  "delete": "Delete",
+  "edit": "Edit",
+  "back": "Back",
+  "next": "Next",
+  "close": "Close"
+}

@@ -1,0 +1,14 @@
+{
+  "features": "Features",
+  "pricing": "Pricing",
+  "forTeams": "For Teams",
+  "forCoaches": "For Coaches",
+  "security": "Security",
+  "login": "Sign In",
+  "register": "Start Free Trial",
+  "dashboard": "Dashboard",
+  "command": "Command Center",
+  "billing": "Billing",
+  "settings": "Settings",
+  "signOut": "Sign Out"
+}

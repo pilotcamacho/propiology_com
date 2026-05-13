@@ -1,0 +1,25 @@
+{
+  "readinessScore": "Readiness Score",
+  "readinessSubtitle": "Your daily composite score (0–100)",
+  "habits": "Habits",
+  "habitsToday": "Today's habits",
+  "markComplete": "Mark complete",
+  "streak": "streak",
+  "days": "days",
+  "journal": "Journal",
+  "journalPrompt": "What is your intention for today?",
+  "aiTools": "AI Tools",
+  "careMultiplier": "Care-Multiplier",
+  "cognitiveShield": "Cognitive Shield",
+  "biometrics": "Biometrics",
+  "progress": "Progress",
+  "settings": "Settings",
+  "welcomeBack": "Welcome back",
+  "noHabitsYet": "No active habits yet. Create your first habit to get started.",
+  "createHabit": "Create Habit",
+  "components": {
+    "habits": "Habit adherence",
+    "biometrics": "Biometric signals",
+    "reflection": "Reflection practice"
+  }
+}
