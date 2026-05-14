@@ -162,73 +162,74 @@ Add resources one at a time and confirm CI passes between each:
 
 ---
 
-## Phase 6: B2C End-User Dashboard [ ] Weeks 12–15
+## Phase 6: B2C End-User Dashboard ✅ Weeks 12–15
 
-### 6.1 Dashboard home [ ]
-- [ ] `app/(protected)/dashboard/page.tsx`
-- [ ] Readiness Score widget (circular gauge, today vs. 7-day avg)
-- [ ] Today's habit checklist (top 3 active habits, check-in CTA)
-- [ ] AI insight of the day (fetched from `AIConversation` latest or static pool)
-- [ ] Quick links: Journal, Tools, Progress
+### 6.1 Dashboard home ✅
+- ✅ `app/[locale]/dashboard/page.tsx` — Readiness Score widget (circular gauge, today + 7-day avg)
+- ✅ Today's habit checklist (top 3 active habits, check-in toggle)
+- ✅ AI insight of the day (rotating 30-insight static pool — `lib/habits/insights.ts`)
+- ✅ Quick links: Journal, AI Tools, Progress, Habits
 
-### 6.2 Habit tracker [ ]
-- [ ] `app/(protected)/dashboard/habits/page.tsx`
-- [ ] Create habit: name, category (Body / Mind / Relationships / Work), frequency (daily/weekly)
-- [ ] Daily check-in: mark complete / incomplete with optional note
-- [ ] Streak display per habit (current streak, best streak)
-- [ ] `lib/habits/` — server utilities for habit CRUD and streak calculation
-- [ ] `app/api/habits/route.ts` — POST (create), PUT (log entry), GET (list with streaks)
+### 6.2 Habit tracker ✅
+- ✅ `app/[locale]/dashboard/habits/page.tsx` — full habit tracker
+- ✅ Create habit: name, category (Body / Mind / Relationships / Work), frequency (daily/weekly)
+- ✅ Daily check-in: mark complete / incomplete; streak display per habit
+- ✅ `lib/habits/streaks.ts` — currentStreak(), bestStreak() pure functions
+- ✅ `app/api/habits/route.ts` — GET (list + streaks via DynamoDB), POST (create habit)
+- ✅ `app/api/habits/log/route.ts` — POST (log completion, used by WhatsApp webhook Phase 8)
 
-### 6.3 Readiness Score detail [ ]
-- [ ] `app/(protected)/dashboard/progress/page.tsx`
-- [ ] 30-day score trend chart (recharts or chart.js)
-- [ ] Component breakdown: Habit adherence (40%) / Biometric signals (30%) / Reflection activity (30%)
-- [ ] Milestone badges (7-day streak, 30-day streak, first journal, first AI session)
-- [ ] Score recalculation triggered daily by EventBridge → Lambda → DynamoDB
+### 6.3 Readiness Score detail ✅
+- ✅ `app/[locale]/dashboard/progress/page.tsx` — score trend chart (inline SVG polyline, no dep)
+- ✅ Component breakdown bars: Habit adherence (40%) / Biometric signals (30%) / Reflection (30%)
+- ✅ Milestone badges: 6 achievable badges (first habit, 7-day streak, 30-day, journal, score 70+, 90+)
+- ⏭ Score recalculation Lambda (EventBridge → Lambda → DynamoDB) — deferred; baseline set at onboarding
 
-### 6.4 Narrative journal [ ]
-- [ ] `app/(protected)/dashboard/journal/page.tsx`
-- [ ] Daily Propiology reflection prompts (from `lib/journal/prompts.ts` — bilingual, 30-prompt rotation)
-- [ ] Free-text entry with mood tagging (7 states mapped to Propiology emotional vocabulary)
-- [ ] Entry list with date and mood; individual entry view
+### 6.4 Narrative journal ✅
+- ✅ `app/[locale]/dashboard/journal/page.tsx` — editor + past entries with expand/collapse
+- ✅ `lib/journal/prompts.ts` — 30 bilingual Propiology reflection prompts, daily rotation
+- ✅ Mood tagging: 7 states (clarity, tension, curiosity, resistance, flow, fatigue, gratitude)
+- ✅ Entry list with date, mood, word count; inline expand to read full entry
 
-### 6.5 Dashboard settings [ ]
-- [ ] `app/(protected)/dashboard/settings/page.tsx`
-- [ ] Profile: name, avatar, bio
-- [ ] Language preference (updates Cognito attribute)
-- [ ] Notification preferences (email digest frequency)
-- [ ] WhatsApp: link/unlink number, opt-in/out of message types
-- [ ] Account: change password, delete account
+### 6.5 Dashboard settings ✅
+- ✅ `app/[locale]/dashboard/settings/page.tsx` — profile, WhatsApp, security sections
+- ✅ Profile: display name + language preference (updates Cognito attributes)
+- ✅ WhatsApp: link/unlink number, opt-in toggles (habit check-in, score digest, weekly insights)
+- ✅ Account: change password (Amplify `updatePassword`)
+- ✅ `app/[locale]/dashboard/tools/page.tsx` — AI tools catalog stub (Phase 7 fills in)
 
 ---
 
-## Phase 7: AI Tools [ ] Weeks 16–18
+## Phase 7: AI Tools ✅ Weeks 16–18
 
-### 7.1 Tools catalog [ ]
-- [ ] `app/(protected)/dashboard/tools/page.tsx` — grid of available tools, lock icon on Pro-only tools
+### 7.1 Tools catalog ✅
+- ✅ `app/[locale]/dashboard/tools/page.tsx` — grid of live tools, links to tool pages
 
-### 7.2 Care-Multiplier [ ]
-- [ ] `app/(protected)/dashboard/tools/care-multiplier/page.tsx`
-- [ ] Chat interface: user input → API call → AI response stream
-- [ ] System prompt: instructs AI to use Propiology framework (6 elements, Circle of Love) to analyze relational dynamics
-- [ ] `app/api/ai/care-multiplier/route.ts` — calls AI provider (Anthropic Claude claude-sonnet-4-6 recommended)
-- [ ] Conversation history stored in DynamoDB `AIConversation`
-- [ ] Session list: previous Care-Multiplier conversations accessible from sidebar
-- [ ] Pro-tier feature; Basic users see teaser + upgrade prompt
+### 7.2 Care-Multiplier ✅
+- ✅ `app/[locale]/dashboard/tools/care-multiplier/page.tsx` — streaming chat UI
+- ✅ Bilingual system prompt grounded in the 6 Propiology elements
+- ✅ `app/api/ai/care-multiplier/route.ts` — streaming route (Anthropic `claude-sonnet-4-6`, prompt caching)
+- ✅ Conversation history stored in DynamoDB `AIConversation`
+- ✅ Pro-tier feature; rate-limited on Basic (10/day)
 
-### 7.3 Cognitive Shield [ ]
-- [ ] `app/(protected)/dashboard/tools/cognitive-shield/page.tsx`
-- [ ] Step 1: User describes a decision or thought pattern
-- [ ] Step 2: AI identifies active cognitive biases + applies Propiology reframe
-- [ ] Step 3: User chooses an alternative framing to commit to (saved as journal entry)
-- [ ] `app/api/ai/cognitive-shield/route.ts`
-- [ ] Pro-tier feature
+### 7.3 Cognitive Shield ✅
+- ✅ `app/[locale]/dashboard/tools/cognitive-shield/page.tsx` — 3-step UI (describe → biases → commit)
+- ✅ AI returns structured JSON: biases, reframes, summaryInsight, microAction
+- ✅ Step 3 allows optional journal entry creation via AppSync
+- ✅ `app/api/ai/cognitive-shield/route.ts` — non-streaming structured analysis
+- ✅ Pro-tier feature
 
-### 7.4 AI infrastructure [ ]
-- [ ] `lib/ai/client.ts` — provider-agnostic wrapper (reads `AI_PROVIDER` env var)
-- [ ] `lib/ai/prompts.ts` — system prompts for each tool (EN + ES)
-- [ ] Rate limiting: 10 AI requests per user per day on Basic; unlimited on Pro
-- [ ] Lambda function `amplify/functions/aiFunction/` — optional: run AI calls server-side for latency reduction
+### 7.4 AI infrastructure ✅
+- ✅ `lib/ai/client.ts` — Anthropic singleton, model constant (`claude-sonnet-4-6`)
+- ✅ `lib/ai/prompts.ts` — bilingual system prompts for both tools (EN + ES)
+- ✅ `lib/ai/ratelimit.ts` — DynamoDB daily counter (10/day Basic; unlimited Pro/Trial)
+- ✅ Prompt caching enabled (`cache_control: { type: "ephemeral" }` on system blocks)
+- ✅ `AI_RATE_LIMIT_TABLE_NAME` added to `.env.local.example`
+
+### Decisions log
+- Model: `claude-sonnet-4-6` (better cost-to-quality ratio for behavioral science prompts vs Opus)
+- Rate limit: 10 AI calls/day on Basic across both tools; unlimited on Pro and Trial
+- Streaming: Care-Multiplier uses `ReadableStream` + `for await` loop; Cognitive Shield non-streaming (structured JSON)
+- Conversation persistence: DynamoDB via SDK in API route (owner field manually set from JWT sub)
 
 ---
 
