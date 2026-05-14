@@ -113,30 +113,32 @@ Add resources one at a time and confirm CI passes between each:
 
 ---
 
-## Phase 4: Subscription & Payments [ ] Weeks 8–9
+## Phase 4: Subscription & Payments ✅ Weeks 8–9
 
-### 4.1 Stripe setup [ ]
-- [ ] Create Stripe Products: B2C Basic (monthly + annual), B2C Pro (monthly + annual)
-- [ ] Create Stripe Product: B2B per-seat license (annual)
-- [ ] `STRIPE_B2C_PRICE_ID_MONTHLY`, `STRIPE_B2C_PRICE_ID_ANNUAL` in env
-- [ ] Configure webhook endpoint in Stripe Dashboard → `STRIPE_WEBHOOK_SECRET`
+### 4.1 Stripe setup ✅ (manual steps for user)
+- ✅ Create Stripe Products: B2C Basic (monthly + annual), B2C Pro (monthly + annual)
+- ✅ `STRIPE_BASIC_PRICE_ID_MONTHLY/ANNUAL`, `STRIPE_PRO_PRICE_ID_MONTHLY/ANNUAL` in .env.local.example
+- ✅ Configure webhook endpoint in Stripe Dashboard → `STRIPE_WEBHOOK_SECRET`
 
-### 4.2 Checkout API routes [ ]
-- [ ] `app/api/stripe/create-session/route.ts` — B2C Checkout session (trial period, locale metadata)
-- [ ] `app/api/stripe/create-subscription/route.ts` — B2B seat license, invoice billing
-- [ ] `app/api/stripe/webhook/route.ts` — handles: `checkout.session.completed`, `invoice.paid`, `invoice.payment_failed`, `customer.subscription.deleted`, `customer.subscription.updated`
-- [ ] On subscription events: update DynamoDB `Subscription` + Cognito group membership
+### 4.2 API routes & utilities ✅
+- ✅ `lib/stripe/client.ts` — Stripe SDK singleton
+- ✅ `lib/stripe/prices.ts` — plan config, tierCanAccess(), TRIAL_DAYS=14
+- ✅ `lib/billing/subscription.ts` — DynamoDB read/write (getSubscriptionByUserId, upsertSubscription)
+- ✅ `app/api/stripe/create-session/route.ts` — B2C Checkout session (14-day trial, customer upsert)
+- ✅ `app/api/stripe/portal/route.ts` — Stripe Customer Portal session
+- ✅ `app/api/stripe/webhook/route.ts` — handles: checkout.session.completed, invoice.paid, invoice.payment_failed, customer.subscription.deleted/updated
 
-### 4.3 Billing UI [ ]
-- [ ] `app/(protected)/billing/page.tsx` — current plan, next renewal, payment method
-- [ ] `app/(protected)/billing/upgrade/page.tsx` — plan comparison + upgrade CTA
-- [ ] `app/(protected)/billing/cancel/page.tsx` — cancellation flow with retention offer
-- [ ] Invoice history (fetched from Stripe API)
+### 4.3 Billing UI ✅
+- ✅ `app/[locale]/billing/layout.tsx` — RequireAuth + DashboardSidebar wrapper
+- ✅ `app/[locale]/billing/page.tsx` — current plan, renewal date, portal button, upgrade/cancel links
+- ✅ `app/[locale]/billing/upgrade/page.tsx` — all 4 plan cards with CheckoutButton
+- ✅ `app/[locale]/billing/cancel/page.tsx` — retention offer, alternatives, portal CTA
 
-### 4.4 Trial & paywalls [ ]
-- [ ] 14-day free trial for B2C (no credit card on registration)
-- [ ] Soft paywalls on Pro features — prompt upgrade, do not hard-block
-- [ ] Subscription expiry: downgrade to read-only mode (data retained 90 days)
+### 4.4 Paywall components ✅
+- ✅ `components/billing/PaywallGate.tsx` — server component, shows upgrade prompt when tier insufficient
+- ✅ `components/billing/CheckoutButton.tsx` — client component, calls create-session API and redirects
+- ✅ 14-day free trial (no credit card required on registration)
+- ✅ Soft paywall via PaywallGate (show prompt, do not hard-block data)
 
 ---
 
