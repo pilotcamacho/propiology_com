@@ -90,26 +90,26 @@ Add resources one at a time and confirm CI passes between each:
 
 ---
 
-## Phase 3: Marketing & Conversion Pages [ ] Weeks 6–7
+## Phase 3: Marketing & Conversion Pages ✅ Weeks 6–7
 
-### 3.1 Homepage (`app/[locale]/page.tsx`) [ ]
-- [ ] Hero: "Your Personal OS for behavioral transformation" — primary CTA "Start Free Trial"
-- [ ] Feature overview: 3-column grid (B2C tools, B2B Command Center, WhatsApp integration)
-- [ ] Social proof: testimonials (3 rotating cards)
-- [ ] Pricing section (link to `/pricing`)
-- [ ] FAQ section
+### 3.1 Homepage (`app/[locale]/page.tsx`) ✅
+- ✅ Hero: "Your Personal OS for behavioral transformation" — primary CTA "Start Free Trial"
+- ✅ Feature overview: 3-column grid (B2C tools, B2B Command Center, WhatsApp integration)
+- ✅ Social proof: testimonials (3 rotating cards)
+- ✅ Pricing section (link to `/pricing`)
+- ✅ FAQ section
 
-### 3.2 Core marketing pages [ ]
-- [ ] `app/[locale]/features/page.tsx` — full feature breakdown (B2C vs B2B tabs)
-- [ ] `app/[locale]/pricing/page.tsx` — pricing table (B2C tiers + B2B "Contact Sales")
-- [ ] `app/[locale]/for-teams/page.tsx` — B2B value proposition (HR, coaching, healthcare)
-- [ ] `app/[locale]/for-coaches/page.tsx` — coach onboarding value prop
-- [ ] `app/[locale]/security/page.tsx` — data privacy, AWS/Cognito compliance, consent model
+### 3.2 Core marketing pages ✅
+- ✅ `app/[locale]/features/page.tsx` — full feature breakdown (B2C vs B2B sections)
+- ✅ `app/[locale]/pricing/page.tsx` — pricing table (B2C tiers + B2B "Contact Sales")
+- ✅ `app/[locale]/for-teams/page.tsx` — B2B value proposition (HR, coaching, healthcare)
+- ✅ `app/[locale]/for-coaches/page.tsx` — coach onboarding value prop + 5-stage journey
+- ✅ `app/[locale]/security/page.tsx` — data privacy, AWS/Cognito compliance, consent model
 
-### 3.3 SEO infrastructure [ ]
-- [ ] `app/sitemap.ts` — all marketing routes, both locales
-- [ ] `app/robots.ts` — disallows dashboard/command/api, points to sitemap
-- [ ] Canonical URLs and hreflang on every marketing page
+### 3.3 SEO infrastructure ✅
+- ✅ `app/sitemap.ts` — all marketing routes, both locales, with hreflang alternates
+- ✅ `app/robots.ts` — disallows dashboard/command/api/onboarding/billing, points to sitemap
+- ✅ Canonical URLs and hreflang on every marketing page via `buildMetadata()`
 
 ---
 
