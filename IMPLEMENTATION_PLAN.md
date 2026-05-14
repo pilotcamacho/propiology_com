@@ -142,23 +142,23 @@ Add resources one at a time and confirm CI passes between each:
 
 ---
 
-## Phase 5: Onboarding Flow [ ] Weeks 10–11
+## Phase 5: Onboarding Flow ✅ Weeks 10–11
 
-### 5.1 Onboarding wizard [ ]
-- [ ] `app/(protected)/onboarding/page.tsx` — multi-step wizard
-- [ ] Step 1: Role selection (I'm an individual / I represent a team or organization)
-- [ ] Step 2: Language preference
-- [ ] Step 3: Primary goal (self-knowledge, habit building, performance, team health)
-- [ ] Step 4: Initial Propiology assessment (5 questions → maps to journey stage)
-- [ ] Step 5: WhatsApp opt-in (optional)
-- [ ] Step 6: First habit creation
+### 5.1 Onboarding wizard ✅
+- ✅ `app/[locale]/onboarding/page.tsx` — 7-step wizard (Welcome, Goal, Assessment, Stage reveal, WhatsApp, First Habit, Done)
+- ✅ Role selection captured at registration (`RegisterForm` — sets `custom:role` in Cognito)
+- ✅ Language preference captured at registration (sets `custom:language_preference`; locale from URL)
+- ✅ Step: Primary goal (self-knowledge, habit building, performance, team health)
+- ✅ Step: Initial Propiology assessment (5 questions → maps to journey stage)
+- ✅ Step: WhatsApp opt-in (optional)
+- ✅ Step: First habit creation
 
-### 5.2 Post-onboarding [ ]
-- [ ] Welcome email via SES (`lib/email/templates.ts` — `welcomeEmailContent`)
-- [ ] Assign Cognito group based on role selection
-- [ ] Set `journey_stage` Cognito attribute based on assessment result
-- [ ] First Readiness Score calculation (baseline from assessment)
-- [ ] Redirect to appropriate dashboard (B2C → `/dashboard`, B2B → `/command`)
+### 5.2 Post-onboarding ✅
+- ✅ Welcome email via SES (`lib/email/ses.ts` + `lib/email/templates.ts`) — bilingual HTML + plain-text
+- ✅ Assign Cognito group based on role (`AdminAddUserToGroup` in `api/onboarding/complete/route.ts`)
+- ✅ Set `journey_stage` Cognito attribute based on assessment result
+- ✅ First Readiness Score calculation (baseline from assessment → DynamoDB via AppSync)
+- ✅ Redirect to appropriate dashboard (B2C → `/dashboard`, B2B → `/command`)
 
 ---
 

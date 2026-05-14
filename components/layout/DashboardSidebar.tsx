@@ -14,6 +14,7 @@ const nav = {
     journal: 'Journal',
     progress: 'Progress',
     settings: 'Settings',
+    billing: 'Billing',
     signOut: 'Sign Out',
   },
   es: {
@@ -24,6 +25,7 @@ const nav = {
     journal: 'Diario',
     progress: 'Progreso',
     settings: 'Configuración',
+    billing: 'Facturación',
     signOut: 'Cerrar Sesión',
   },
 };
@@ -42,6 +44,7 @@ export function DashboardSidebar({ locale }: { locale: string }) {
     { href: `${base}/journal`, label: copy.journal, icon: '✎' },
     { href: `${base}/progress`, label: copy.progress, icon: '↗' },
     { href: `${base}/settings`, label: copy.settings, icon: '⚙' },
+    { href: `/${locale}/billing`, label: copy.billing, icon: '◈' },
   ];
 
   const handleSignOut = async () => {
