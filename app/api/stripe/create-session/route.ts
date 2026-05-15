@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { stripe } from '@/lib/stripe/client';
+import { getStripeClient } from '@/lib/stripe/client';
 import { TRIAL_DAYS } from '@/lib/stripe/prices';
 import { getSubscriptionByUserId, upsertSubscription } from '@/lib/billing/subscription';
 
@@ -22,6 +22,7 @@ export async function POST(req: NextRequest) {
     // Get or create Stripe customer
     let customerId: string;
     const existing = await getSubscriptionByUserId(userId);
+    const stripe = getStripeClient();
 
     if (existing?.stripeCustomerId) {
       customerId = existing.stripeCustomerId;

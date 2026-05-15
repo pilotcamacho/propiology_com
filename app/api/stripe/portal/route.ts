@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { stripe } from '@/lib/stripe/client';
+import { getStripeClient } from '@/lib/stripe/client';
 
 export async function POST(req: NextRequest) {
   try {
@@ -12,6 +12,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
+    const stripe = getStripeClient();
     const session = await stripe.billingPortal.sessions.create({
       customer: customerId,
       return_url: returnUrl,

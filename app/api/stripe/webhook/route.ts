@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import type Stripe from 'stripe';
-import { stripe } from '@/lib/stripe/client';
+import { getStripeClient } from '@/lib/stripe/client';
 import { upsertSubscription } from '@/lib/billing/subscription';
 import { planFromPriceId } from '@/lib/stripe/prices';
 
@@ -62,6 +62,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Missing stripe-signature header' }, { status: 400 });
   }
 
+  const stripe = getStripeClient();
   let event: Stripe.Event;
   try {
     event = stripe.webhooks.constructEvent(body, sig, process.env.STRIPE_WEBHOOK_SECRET!);
