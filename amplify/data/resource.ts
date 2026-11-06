@@ -170,7 +170,8 @@ export type Schema = ClientSchema<typeof schema>;
 export const data = defineData({
   schema,
   authorizationModes: {
+    // No API key mode: no model uses publicApiKey(), and an expiring key
+    // breaks CloudFormation deploys once AWS deletes it.
     defaultAuthorizationMode: 'userPool',
-    apiKeyAuthorizationMode: { expiresInDays: 30 },
   },
 });
