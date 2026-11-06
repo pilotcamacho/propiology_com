@@ -3,6 +3,7 @@ import { Inter, Cormorant_Garamond } from 'next/font/google';
 import '../globals.css';
 import { MarketingHeader } from '@/components/layout/MarketingHeader';
 import { Footer } from '@/components/layout/Footer';
+import { UNDER_CONSTRUCTION } from '@/lib/site/status';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const cormorant = Cormorant_Garamond({
@@ -21,8 +22,8 @@ export async function generateMetadata({
 
   const title =
     locale === 'es'
-      ? 'Propiology — Tu Sistema Operativo Personal'
-      : 'Propiology — Your Personal OS';
+      ? UNDER_CONSTRUCTION ? 'Propiology — En construcción' : 'Propiology — Tu Sistema Operativo Personal'
+      : UNDER_CONSTRUCTION ? 'Propiology — Under construction' : 'Propiology — Your Personal OS';
 
   const description =
     locale === 'es'
@@ -47,9 +48,15 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${inter.variable} ${cormorant.variable}`}>
       <body>
-        <MarketingHeader locale={locale} />
-        <main>{children}</main>
-        <Footer locale={locale} />
+        {UNDER_CONSTRUCTION ? (
+          <main>{children}</main>
+        ) : (
+          <>
+            <MarketingHeader locale={locale} />
+            <main>{children}</main>
+            <Footer locale={locale} />
+          </>
+        )}
       </body>
     </html>
   );

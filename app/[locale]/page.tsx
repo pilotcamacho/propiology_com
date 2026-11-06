@@ -2,6 +2,8 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { buildMetadata } from '@/lib/seo/metadata';
 import { faqPageSchema, softwareAppSchema, jsonLdScript } from '@/lib/seo/jsonld';
+import { UNDER_CONSTRUCTION } from '@/lib/site/status';
+import { UnderConstruction } from '@/components/site/UnderConstruction';
 
 export async function generateMetadata({
   params,
@@ -9,6 +11,12 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  if (UNDER_CONSTRUCTION) {
+    return {
+      title: locale === 'es' ? 'En construcción' : 'Under construction',
+      robots: { index: false, follow: true },
+    };
+  }
   return buildMetadata({
     title: locale === 'es' ? 'Tu Sistema Operativo Personal' : 'Your Personal OS',
     description:
@@ -138,6 +146,7 @@ const copy = {
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  if (UNDER_CONSTRUCTION) return <UnderConstruction locale={locale} />;
   const t = copy[locale as keyof typeof copy] ?? copy.en;
 
   const faqSchema = faqPageSchema(t.faqs.map((f) => ({ question: f.q, answer: f.a })));

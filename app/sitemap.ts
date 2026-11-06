@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { UNDER_CONSTRUCTION } from '@/lib/site/status';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.propiology.com';
 const locales = ['en', 'es'] as const;
@@ -13,6 +14,7 @@ const marketingRoutes = [
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  if (UNDER_CONSTRUCTION) return [];
   const entries: MetadataRoute.Sitemap = [];
 
   for (const locale of locales) {
